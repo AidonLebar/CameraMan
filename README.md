@@ -20,7 +20,7 @@ virtualenv -p python3 env
 
 4. Start virtual environment:
  ```bash
-source venv/bin/activate
+source env/bin/activate
 ```
 
 5. Switch branch to dev:
