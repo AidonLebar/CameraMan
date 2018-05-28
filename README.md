@@ -1,5 +1,5 @@
 # CameraMan
-a program designed for simple, single-button operation of a lightboard
+A program designed for simple, single-button operation of a lightboard
 
 ## Developing
 ### Setting Up Environment
