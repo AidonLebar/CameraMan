@@ -15,7 +15,7 @@ pip install virtualenv
 
 3. Set up a virtual environment with Python 3:
 ```bash
-virtualenv -p python3 venv
+virtualenv -p python3 env
 ```
 
 4. Start virtual environment:
