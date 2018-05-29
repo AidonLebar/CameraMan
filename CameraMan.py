@@ -1,10 +1,19 @@
 import subprocess
 import time
-from time import gmtime, strftime
-from datetime import datetime
 import shutil
 import os
 import re
+import sys
+from time import gmtime, strftime
+from datetime import datetime
+
+platform = sys.platform
+if platform == 'linux':
+    print("Linux is Not Currently Supported.")
+    sys.exit(1)
+elif platform == 'win32' or platform == 'cygwin':
+    print("Windows is Not Currently Supported.")
+    sys.exit(1)
 
 #record and preview
 cmd = 'ffmpeg -rtbufsize 256MB -video_size 1280x720 -pix_fmt uyvy422 -framerate 30 -f avfoundation -i "0:0" -vf hflip -c:v rawvideo -f nut -map 0:v pipe: \
@@ -63,4 +72,4 @@ shutil.move("./{}".format(filename), "/Volumes/{}/{}".format(usb, filename))
 p4 = subprocess.Popen('diskutil unmountDisk /dev/{}'.format(d2), stdout=subprocess.PIPE, shell=True)
 p4.wait()
 
-print("Completed. Please Remove USB Storage Device")
+print("Completed. Please Remove USB Storage Device.")
