@@ -44,4 +44,7 @@ p2 = subprocess.Popen(cmd2, stdin=subprocess.PIPE, stderr=subprocess.PIPE, shell
 p2.wait()
 p3 = subprocess.Popen('rm output.avi', stdin=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 print("Compression Complete. Moving video to USB...")
+
 shutil.move("./{}".format(filename), "/Volumes/{}/{}".format(usb, filename))
+
+print("Move Completed. Please Eject and Remove USB Storage Device")
