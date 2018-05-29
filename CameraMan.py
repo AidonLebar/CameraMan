@@ -1,15 +1,30 @@
 import subprocess
 import time
+from time import gmtime, strftime
 
 cmd = 'ffmpeg -rtbufsize 256MB -video_size 1280x720 -pix_fmt uyvy422 -framerate 30 -f avfoundation -i "0:0" -c:v rawvideo -f nut -map 0:v pipe: \
 -f avi -c:v copy output.avi | ffplay pipe:'
 
+cmd2 = 'ffmpeg -i output.avi -c:v libx264 -crf 17 -preset slow -f avi \"{}.avi\"'.format(strftime("%Y-%m-%d %Hh%M", gmtime()))
+
 input("Press Enter to Start Recording.")
-print("Recording")
+for i in range(3,0,-1):
+    print(i)
+    time.sleep(1)
+print("Recording...")
 
 p = subprocess.Popen(cmd, stdin=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 
-input("Press Enter to Stop Filming.")
+input("Press Enter to Stop Recording.")
+#p.terminate()
+p.stdin.write('q'.encode())
+p.stdin.close()
 p.terminate()
 
-print("Recording Completed.")
+p.wait()
+
+print("Recording Completed. Compressing...")
+p2 = subprocess.Popen(cmd2, stdin=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+p2.wait()
+p3 = subprocess.Popen('rm output.avi', stdin=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+print("Compression Complete.")
