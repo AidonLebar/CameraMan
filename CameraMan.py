@@ -1,11 +1,12 @@
 import subprocess
 import time
 from time import gmtime, strftime
+from datetime import datetime
 
-cmd = 'ffmpeg -rtbufsize 256MB -video_size 1280x720 -pix_fmt uyvy422 -framerate 30 -f avfoundation -i "0:0" -c:v rawvideo -f nut -map 0:v pipe: \
+cmd = 'ffmpeg -rtbufsize 256MB -video_size 1280x720 -pix_fmt uyvy422 -framerate 30 -f avfoundation -i "0:0" -vf hflip -c:v rawvideo -f nut -map 0:v pipe: \
 -f avi -c:v copy output.avi | ffplay pipe:'
 
-cmd2 = 'ffmpeg -i output.avi -c:v libx264 -crf 17 -preset slow -f avi \"{}.avi\"'.format(strftime("%Y-%m-%d %Hh%M", gmtime()))
+cmd2 = 'ffmpeg -i output.avi -vf hflip -c:v libx264 -crf 17 -f avi \"{}.avi\"'.format(datetime.now().strftime('%Y-%m-%d %Hh%M'))
 
 input("Press Enter to Start Recording.")
 for i in range(3,0,-1):
