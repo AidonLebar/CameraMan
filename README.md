@@ -27,8 +27,3 @@ source env/bin/activate
 ```bash
 git checkout dev
 ```
-
-6. Install the dependencies:
-```bash
-pip install -r requirements.txt
-```
