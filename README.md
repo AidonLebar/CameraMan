@@ -1,5 +1,5 @@
 # CameraMan
-A program designed for simple, single-button operation of a lightboard
+A program primarily designed for simple, single-button operation of a lightboard. Can also be used for filming of any kind from a web cam or connected camera. Currently works on linux and OSX, but may require changes depending on the computer set up. 
 
 ## Developing
 ### Setting Up Environment
