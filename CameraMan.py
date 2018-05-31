@@ -13,7 +13,7 @@ if platform == 'linux':
     #input path may need to be changed depending on setup
     ip = '/dev/video0'
     #record and preview
-    cmd = 'ffmpeg -rtbufsize 256MB -video_size 1280x720 -pix_fmt yuyv422 -framerate 30 -f v4l2 -i {} -vf hflip -c:v rawvideo -f nut -map 0:v pipe: \
+    cmd = 'ffmpeg -rtbufsize 256MB -video_size 1280x720 -pix_fmt mjpeg -framerate 30 -f v4l2 -i {} -vf hflip -c:v rawvideo -f nut -map 0:v pipe: \
     -f avi -c:v copy output.avi | ffplay pipe:'.format(ip)
 
     #compress video and rename output to current time
