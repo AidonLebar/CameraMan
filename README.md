@@ -5,7 +5,7 @@ A program designed for simple, single-button operation of a lightboard
 ### Setting Up Environment
 1. Clone repository:
 ```bash
-git clone https://github.com/AidonLebar/lightboard.git
+git clone https://github.com/AidonLebar/CameraMan.git
 ```
 
 2. Install virtualenv (if you haven't already):
