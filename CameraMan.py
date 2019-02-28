@@ -50,7 +50,7 @@ elif platform == 'darwin':
     -f avi -c:v copy output.avi | ffplay pipe:'.format(dn)
 
     #compress video and rename output to current time
-    filename = "{}.avi".format(datetime.now().strftime('%Y-%m-%d %Hh%M'))
+    filename = "{}.avi".format(datetime.now().strftime('%Y-%m-%d_%Hh%M'))
     cmd2 = 'ffmpeg -i output.avi -vf hflip -c:v libx264 -crf 17 -f avi \"{}\"'.format(filename)
 
     devices = os.listdir('/Volumes')
